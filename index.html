@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3 class="heading">Video gallery</h3>
+    <div class="container">
+        <div class="main-video">
+            <div class="video">
+                <video src="video/bibi-ameena.mp4" controls autoplay></video>
+                <h3 class="title">| Bibi Amna Ke Phool | Milad Special Kallam | Islamic Naat</h3>
+            </div>
+        </div>
+        <div class="video-list">
+            <div class="vid active">
+                <video src="video/Hamnai-ako-se(female version).mp4"  muted ></video>
+                <h3 class="title">Humne Aankhon Se Dekha Nahi Hai Magar | Syeda Areeba Fatima | Naat Sharif |</h3>
+            </div>
+            <div class="vid">
+                <video src="video/Hamnai-ako-se.mp4"  muted ></video>
+                <h3 class="title">Humne Aankhon Se Dekha Nahin Hai Mgar Full Naat || Emotional Naat</h3>
+            </div>
+            <div class="vid">
+                <video src="video/kullu-nafsi.mp4"  muted ></video>
+                <h3 class="title">kullu nafsin zaikatul maut By Abdul Rahman Mossad, with visualization</h3>
+            </div>
+            <div class="vid">
+                <video src="video/wo-meranabi.mp4"  muted ></video>
+                <h3 class="title">Laiba Fatima |New Naat 2021|Wo Mera Nabi Hai |Official video | Best Female Naat</h3>
+            </div>
+            <div class="vid">
+                <video src="video/dil-meinishq.mp4"  muted ></video>
+                <h3 class="title">Most Beautiful Naat (2023)|| Dil Me Ishq-E Nabi Ki Ho Aise Lagan ||| SAHEBA PARVEEN |||</h3>
+            </div>
+            <div class="vid">
+                <video src="video/Bismillah.mp4"  muted ></video>
+                <h3 class="title">MV BISMILLAH (2013 Edition - ENGLISH)</h3>
+            </div>
+            <div class="vid">
+                <video src="video/labpeaati.mp4"  muted ></video>
+                <h3 class="title">Lab Pe Aati Hai Dua Banke Tamanna Meri | </h3>
+            </div>
+            <div class="vid">
+                <video src="video/chandhai tu.mp4"  muted ></video>
+                <h3 class="title">Chanda Hai Tu, Mera Suraj Hai Tu [4K] Video Song : Lata Mangeshkar | Rajesh K, Sharmila T | Aradhana</h3>
+            </div>
+        </div>
+    </div>
+    <script>
+        let listvideo = document.querySelectorAll('.video-list .vid');
+        let mainVideo = document.querySelector('.main-video video');
+        let title = document.querySelector('.main-video .title');
+
+        listvideo.forEach(video =>{
+            video.onclick = () =>{
+                listvideo.forEach(vid => vid.classList.remove('active'));
+                video.classList.add('active');
+                if(video.classList.contains('active')){
+                    let src = video.children[0].getAttribute('src');
+                    mainVideo.src = src;
+                    let text = video.children[1].innerHTML;
+                    title.innerHTML = text;
+                }
+            };
+        })
+    </script>
+</body>
+</html>
